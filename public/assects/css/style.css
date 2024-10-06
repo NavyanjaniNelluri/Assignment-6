@@ -1,22 +1,35 @@
+/* Color Palette */
+.first-color { 
+    background: #00a8b5; /* Teal */
+}
+.second-color { 
+    background: #dc81bf; /* Purple */
+}
+.third-color { 
+    background: #e81e72; /* Pink */
+}
+.fourth-color { 
+    background: #f3ae4b; /* Orange */
+}
 
 /* Light Theme (default) */
 :root {
-    --background-color: #fff;
-    --text-color: #000;
-    --header-bg-color: #f4f4f4;
-    --footer-bg-color: #f4f4f4;
-    --btn-bg-color: #3498db;
-    --btn-text-color: #fff;
+    --background-color: #ffffff;
+    --text-color: #2e2e2e; /* Dark gray for better contrast */
+    --header-bg-color: hsl(289, 61%, 80%); /* Second color applied to header */
+    --footer-bg-color: hsl(289, 61%, 80%); /* Fourth color applied to footer */
+    --btn-bg-color: #de4383; /* Third color applied to buttons */
+    --btn-text-color: #ffffff;
 }
 
 /* Dark Theme */
 body.dark-mode {
     --background-color: #181818;
-    --text-color: #0ad9f0;
+    --text-color: #e0e0e0; /* Light gray for better contrast on dark background */
     --header-bg-color: #222;
     --footer-bg-color: #222;
-    --btn-bg-color: #3498db;
-    --btn-text-color: #fff;
+    --btn-bg-color: #00a8b5; /* First color applied to buttons in dark mode */
+    --btn-text-color: #ffffff;
 }
 
 body {
@@ -53,38 +66,74 @@ header {
     align-items: center;
     padding: 20px;
     background-color: var(--header-bg-color);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increased shadow for more depth */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+header:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.welcome-message {
+    margin-right: 20px;
+    font-size: 20px;
+    color: #04a9fc;
 }
 
 .logo-img {
-    width: 50px;
+    width: 90px; /* Increased size */
     height: auto;
+    transition: transform 0.3s ease;
+    font-size: 50px; /* Adjust the value as needed */
+}
+
+
+.logo-img:hover {
+    transform: scale(1.1); /* Slight scale-up effect on hover */
 }
 
 nav ul {
     list-style: none;
     display: flex;
-}
-
-nav ul li {
-    margin: 0 1rem;
+    gap: 1.5rem; /* Use gap for more consistent spacing */
 }
 
 nav ul li a {
     color: var(--text-color);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 700;
+    font-size:large;
     padding: 0.5rem 1rem;
-    transition: color 0.3s ease;
+    border-radius: 8px;
+    box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #80cbc4;
+    color: #ffffff; /* Pure white on hover */
+    background-color: var(--primary-color); /* Add background color on hover */
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.4); /* Inner shadow effect on hover */
+    transform: translateY(-3px); /* Slight upward movement on hover */
 }
+
+nav ul li a:active {
+    transform: scale(0.95); /* Small scale down on click for feedback */
+}
+
 
 /* Hero Section */
 .hero {
-    background-color: #4db6ac;
+    background-color: #adadad; /* First color for hero background */
     color: var(--text-color);
     text-align: center;
     padding: 5rem 1rem;
@@ -93,11 +142,13 @@ nav ul li a:hover {
 .hero-content h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: #ffffff; /* White for better contrast */
 }
 
 .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
+    color: #e0f7fa; /* Light teal for softer contrast */
 }
 
 .hero-buttons {
@@ -107,15 +158,16 @@ nav ul li a:hover {
 }
 
 .hero-buttons .btn {
-    background-color: #00796b;
+    background-color: #635a5d; /* Third color applied to hero buttons */
     color: var(--btn-text-color);
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
     transition: background 0.3s;
 }
 
+
 .hero-buttons .btn:hover {
-    background-color: #004d40;
+    background-color: #000000; /* Brighter pink for hover */
 }
 
 /* Gallery Section */
@@ -128,7 +180,7 @@ nav ul li a:hover {
 .text-content {
     width: 50%;
     padding: 3rem;
-    background-color: #e0f2f1;
+    background-color: #ffffff; /* Fourth color applied to gallery section text content */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -138,12 +190,13 @@ nav ul li a:hover {
 .text-content h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: #00796b;
+    color: #000000; /* White for high contrast */
 }
 
 .text-content p {
     font-size: 1.2rem;
     line-height: 1.6;
+    color: #4e342e; /* Dark brown for readability */
 }
 
 .gallery-container {
@@ -190,12 +243,71 @@ nav ul li a:hover {
     }
 }
 
+.success-container {
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    border-top: 8px solid #D91656; /* Pinkish Red top border */
+}
+
+.success-container .success-icon {
+    font-size: 50px;
+    color: #640D5F; /* Dark Purple */
+    margin-bottom: 20px;
+}
+
+.success-container h1 {
+    font-size: 32px;
+    color: #640D5F; /* Dark Purple */
+}
+
+.success-container p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.success-container .offer-text {
+    font-size: 16px;
+    color: #D91656; /* Pinkish Red */
+    font-weight: bold;
+}
+
+.success-container .subscribe-btn {
+    padding: 12px 30px;
+    background-color: #D91656; /* Pinkish Red button */
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.success-container .subscribe-btn:hover {
+    background-color: #640D5F; /* Dark Purple on hover */
+}
+
+
 /* Footer Styling */
 footer {
-    background-color: var(--footer-bg-color);
+    background-color: var(--footer-bg-color); /* Fourth color applied to footer */
     color: var(--text-color);
     padding: 2rem 0;
 }
+
+.footer__socials a {
+    color: var(--white);
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
 
 .footer-container {
     display: flex;
@@ -210,60 +322,140 @@ footer {
     color: var(--text-color);
 }
 
-/* Responsive Footer */
-@media screen and (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
+.footer-section p, .footer-section ul {
+    color: var(--text-color); /* Dark gray for readability */
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: var(--text-color); /* Light teal */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--text-color); /* White on hover */
+}
+
+/* Login & Registration Forms */
+/* General form styles */
+section.login-form, section.registration-form {
+    padding: 3rem;
+    max-width: 600px; /* Increased max-width */
+    margin: 0 auto;
+    background: rgba(50, 50, 50, 0.7); /* Darker semi-transparent background */
+    border-radius: 18px;
+    backdrop-filter: blur(10px); /* Stronger frosted glass effect */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Increased shadow */
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for the form */
+section.login-form:hover, section.registration-form:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Heading styles */
+h2 {
+    font-size: 2.5rem; /* Slightly larger heading */
+    margin-bottom: 1.5rem;
+    color: #8df2ff; /* Cool blue for contrast */
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Lighter shadow for depth */
+}
+
+/* Form layout */
+form {
+    display: grid;
+    gap: 1.6rem; /* Increased gap */
+}
+
+/* Label styles */
+label {
+    font-size: 1.2rem; /* Slightly larger labels */
+    color: #dcdcdc; /* Softer gray */
+}
+
+/* Input and select fields */
+input, select {
+    padding: 1rem; /* Increased padding */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    background-color: rgb(20, 19, 19); /* Transparent input */
+    color: #f5f0f0;
+    font-size: 1.1rem; /* Slightly larger font */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    backdrop-filter: blur(6px); /* Subtle glass effect */
+}
+
+/* Textarea styles */
+textarea {
+    padding: 1rem; /* Padding for textarea */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.15); /* Transparent background */
+    color: #ffffff;
+    font-size: 1.1rem; /* Font size for textarea */
+    min-height: 120px; /* Minimum height for textarea */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    backdrop-filter: blur(6px); /* Subtle glass effect */
+}
+
+/* Focus effect for inputs and textarea */
+input:focus, select:focus, textarea:focus {
+    border-color: #4db8ff; /* Cool blue focus */
+    box-shadow: 0 0 12px rgba(77, 184, 255, 0.5); /* Soft blue glow */
+}
+
+/* Button styles */
+button.btn {
+    background-color: #4db8ff; /* Cool blue */
+    color: #ffffff;
+    padding: 1rem 1.6rem; /* Increased padding */
+    border: none;
+    border-radius: 50px; /* Smooth pill shape */
+    cursor: pointer;
+    font-size: 1.2rem; /* Slightly larger button text */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for buttons */
+button.btn:hover {
+    background-color: #3399ff; /* Slightly darker blue on hover */
+    box-shadow: 0 8px 18px rgba(51, 153, 255, 0.4); /* Blue glow on hover */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    section.login-form, section.registration-form {
+        padding: 2.5rem;
+        max-width: 95%; /* Form takes more width on mobile */
+    }
+
+    h2 {
+        font-size: 2.2rem; /* Adjusted heading for mobile */
+    }
+
+    button.btn {
+        padding: 0.9rem 1.4rem; /* Smaller button for mobile */
+    }
+
+    input, select, textarea {
+        padding: 0.85rem; /* Adjusted padding for smaller inputs */
     }
 }
 
-
-/* Login & Registration Forms */
-section.login-form, section.registration-form {
-    padding: 2rem;
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #00796b; /* Darker teal */
-}
-
-form {
-    display: grid;
-    gap: 1rem;
-}
-
-label {
-    font-size: 1rem;
-    color: #333;
-}
-
-input, select {
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 100%;
-}
-
-button.btn {
-    background-color: #00796b; /* Darker teal */
-    color: #fff;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-button.btn:hover {
-    background-color: #004d40; /* Even darker teal */
-}
 
 /* Dashboard */
 .dashboard {
@@ -307,12 +499,13 @@ button.btn:hover {
 .card p {
     font-size: 1.5rem;
     margin: 0;
+    color: #333333; /* Dark gray for readability */
 }
 
 .card a.btn {
     display: block;
     background-color: #00796b; /* Darker teal */
-    color: #fff;
+    color: #ffffff;
     padding: 0.5rem;
     border-radius: 5px;
     transition: background 0.3s;
@@ -323,123 +516,93 @@ button.btn:hover {
 }
 
 /* About Us Section */
-.about-us {
+
+.introduction {
+    margin-bottom: 30px; /* Space below intro */
+    background-color: #ffffff; /* White background */
+    padding: 25px; /* Increased padding */
+    border-radius: 10px; /* More rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+
+.introduction {
+    margin-bottom: 40px; /* Space below intro */
+    background-color: #ffffff; /* White background for contrast */
+    padding: 30px; /* Increased padding */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.services {
+    display: flex; /* Flexbox for layout */
+    flex-wrap: wrap; /* Wrap services to new line if needed */
+    gap: 20px; /* Space between services */
+}
+
+.service {
+    background-color: #ffffff; /* White background for service cards */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding for content */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    flex: 1 1 250px; /* Flexible items with minimum width */
+    transition: box-shadow 0.3s; /* Animation on hover */
+    display: flex; /* Flexbox for icon and text alignment */
+    align-items: center; /* Center items vertically */
+}
+
+.service:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+.service-icon {
+    width: 50px; /* Set icon size */
+    height: 50px; /* Set icon size */
+    margin-right: 15px; /* Space between icon and text */
+}
+/* Team Section */
+.team-section {
+    background-color: #ffffff;
     padding: 4rem 2rem;
     text-align: center;
-    background-color: #e0f2f1; /* Very light teal background */
+}
+
+.team-section h2 {
+    font-size: 2.5rem;
     color: #00796b; /* Darker teal */
 }
 
-.about-us h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+.team-members {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
-.about-us p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto;
-    margin-bottom: 3rem;
-}
-
-/* Team Member Card */
 .team-member {
-    background-color: #ffffff; /* White background for team cards */
+    background-color: #ffffff;
     padding: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
     text-align: center;
+    border-radius: 10px;
 }
 
 .team-member img {
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
+    margin-bottom: 1rem;
 }
 
 .team-member h3 {
     font-size: 1.5rem;
-    margin: 1rem 0;
+    margin-bottom: 0.5rem;
     color: #00796b; /* Darker teal */
 }
 
 .team-member p {
-    font-size: 1rem;
-    color: #333;
-}
-
-/* Footer */
-footer {
-    background-color: #009688; /* Teal background for footer */
-    color: #fff;
-    padding: 2rem 0;
-    margin-top: 3rem;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 0 2rem;
-}
-
-.footer-section {
-    flex: 1;
-    min-width: 200px;
-    margin-bottom: 2rem;
-}
-
-.footer-section h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #fff;
-}
-
-.footer-section p, .footer-section ul {
-    color: #b2dfdb; /* Light teal text color */
-}
-
-.footer-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-section ul li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-section ul li a {
-    color: #b2dfdb;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section ul li a:hover {
-    color: #fff;
-}
-footer input[type="email"] {
-    padding: 10px;
-    width: 80%;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: none;
-}
-footer button[type="submit"] {
-    padding: 10px 20px;
-    background-color: #D91656;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-/* Responsive */
-@media screen and (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-    }
-    
-    .footer-container {
-        flex-direction: column;
-    }
+    font-size: 1.2rem;
+    color: #333333; /* Dark gray for readability */
 }

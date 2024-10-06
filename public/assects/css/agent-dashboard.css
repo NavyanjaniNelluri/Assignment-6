@@ -1,0 +1,106 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e9ecef;
+    color: #343a40;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Agent Dashboard Title */
+#agent-dashboard-title {
+    color: #007bff; /* Primary color */
+    margin-bottom: 20px;
+    font-size: 2em; /* Increase font size for title */
+}
+
+/* Welcome Message */
+#welcome-message {
+    font-size: 1.2em;
+    margin-bottom: 30px; /* Increased margin for spacing */
+}
+
+/* Section Switcher Styles */
+#section-switcher {
+    margin-bottom: 20px;
+}
+
+#section-switcher button {
+    background-color: #007bff; /* Primary button color */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 1em; /* Increase font size */
+}
+
+#section-switcher button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight scale on hover */
+}
+
+/* Form Styles */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Space between forms */
+}
+
+form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1em; /* Increase font size for select */
+}
+
+/* Property List Styles */
+#properties-list,
+#active-deals-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#properties-list li,
+#active-deals-list li {
+    background-color: #ffffff;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    font-size: 1em; /* Increase font size */
+}
+
+#properties-list li:hover,
+#active-deals-list li:hover {
+    transform: translateY(-2px);
+}
+
+/* Active Deals */
+.active-deals {
+    background-color: #dff0d8; /* Light green background for active deals */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Error Message */
+.error {
+    color: #dc3545; /* Danger color */
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #section-switcher button {
+        width: 100%; /* Full-width buttons on smaller screens */
+        margin-bottom: 10px; /* Spacing for mobile */
+    }
+}

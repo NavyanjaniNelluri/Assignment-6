@@ -1,0 +1,39 @@
+extends layout.pug
+
+block content
+  // Link to the seller CSS
+  link(rel="stylesheet", href="/assects/css/seller-dashboard.css")
+
+  h2#seller-dashboard-title Seller Dashboard
+  p#welcome-message Welcome, #{user.firstName}! Here you can manage your properties and add new listings.
+
+  //- List Seller's Properties
+  h3#your-properties-title Your Properties
+  if properties.length > 0
+    ul#properties-list
+      each property in properties
+        li.property-card
+          img(src=property.imageUrl, alt=`Image of ${property.title}`, width="200")
+          p.property-title #{property.title}
+          p.property-info #{property.location} - $#{property.price}
+  else
+    p No properties found.
+
+  //- Add New Property Form
+  h3#add-property-title Add a New Property
+  form#add-property-form(method='post', action='/properties/add')
+    input(type='hidden', name='sellerEmail', value='#{user.email}')
+    input(type='hidden', name='sellerContact', value='#{user.contact}')
+    label(for='title') Title:
+    input#property-title(type='text', name='title', required)
+    br
+    label(for='location') Location:
+    input#property-location(type='text', name='location', required)
+    br
+    label(for='price') Price:
+    input#property-price(type='number', name='price', required)
+    br
+    label(for='imageUrl') Image URL:
+    input#property-image-url(type='url', name='imageUrl', required)
+    br
+    button#add-property-button(type='submit') Add Property
